@@ -2,6 +2,7 @@ package PairOfSum.Question2;
 // Solution without using extra space
 public class PairSum extends BinarySearchTree {
     static int sum;
+    static boolean pairExists = false;
     static Node root, lastvisited = null;
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
@@ -13,7 +14,9 @@ public class PairSum extends BinarySearchTree {
         //End of Input
         root = bst.root;
         searchPair(bst.root);
-
+        if(!pairExists){
+            System.out.println("No suitable pair found for given sum");
+        }
 
     }
     public static void searchPair(Node currRoot){
@@ -29,6 +32,7 @@ public class PairSum extends BinarySearchTree {
             lastvisited = currRoot;
         }
         if((sum-currRoot.data)>lastvisited.data && searchTree(sum-currRoot.data,root)){
+            pairExists=true;
             System.out.println("Pair is ("+currRoot.data+","+ (sum-currRoot.data)+")");
         }
         lastvisited =   currRoot;

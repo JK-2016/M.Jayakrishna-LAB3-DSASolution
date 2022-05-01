@@ -4,6 +4,7 @@ import java.util.ArrayList;
 // Alternate solution using extra space
 public class PairSum_Alternate extends BinarySearchTree {
     static ArrayList<Integer> pairs = new ArrayList<>();
+    static boolean pairExists = false;
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         int [] arr = new int[]{40,20,60,10,30,50,70};
@@ -11,12 +12,14 @@ public class PairSum_Alternate extends BinarySearchTree {
         for (int i =0; i< arr.length;i++) {
             bst.root = bst.insert(arr[i], bst.root);
         }
-        int sum = 130;
+        int sum = 60;
 
         //End of Input
 
         searchPair(sum,bst.root);
-
+        if(!pairExists){
+            System.out.println("No suitable pair found for given sum");
+        }
 
     }
     public static void searchPair(int sum,Node currRoot){
@@ -33,6 +36,7 @@ public class PairSum_Alternate extends BinarySearchTree {
             pairs.add(currRoot.data);
         }
         else{
+            pairExists=true;
             System.out.println("Pair is ("+(sum-currRoot.data)+","+ (currRoot.data)+")");
         }
 

@@ -50,9 +50,7 @@ public class BinarySearchTree {
 
     }
     public static boolean searchTree(int data, Node root){
-//        if(root.data == data){
-//            return  true;
-//        }
+
         Node prev, curr;
         curr = root;
         prev = root;
@@ -79,19 +77,9 @@ public class BinarySearchTree {
           bst.root = bst.insert(arr[i], bst.root);
         }
         bst.printInorder(bst.root);
-        System.out.println();
-        bst.searchTree(8,bst.root);
-        bst.searchTree(11,bst.root);
 
 
-        /*Node root = new Node(5);
-        Node lc = new Node(2);
-        Node rc = new Node(6);
-        root.leftChild = lc;
-        root.rightChild =rc;
-        System.out.println("root is:" + root.data);
-        System.out.println("root's left child is:" + root.leftChild.data);
-        System.out.println("root's RIGHT CHILD  is:" + root.rightChild.data);
-        */
+
+
     }
 }
